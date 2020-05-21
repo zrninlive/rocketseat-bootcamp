@@ -29,4 +29,22 @@ describe('SendForgotPasswordEmail', () => {
 
     expect(sendMail).toHaveBeenCalled();
   });
+
+  it('should not be able to recover a non-existing user password', async () => {
+    const fakeUsersRepository = new FakeUsersRepository();
+    const fakeEmailProvider = new FakeMailProvider();
+
+    const sendMail = jest.spyOn(fakeEmailProvider, 'sendMail');
+
+    const sendForgotPasswordEmail = new SendForgotPasswordEmailService(
+      fakeUsersRepository,
+      fakeEmailProvider,
+    );
+
+    await expect(
+      sendForgotPasswordEmail.execute({
+        email: 'johndoe@example.com',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
 });
