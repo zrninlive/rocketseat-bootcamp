@@ -6,7 +6,6 @@ import IUsersRepository from '../repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 import User from '../infra/typeorm/entities/User';
-import passwordRouter from '../infra/http/routes/password.routes';
 
 interface IRequest {
   user_id: string;
@@ -17,12 +16,12 @@ interface IRequest {
 }
 
 @injectable()
-class UpdateUserAvatarService {
+class UpdateProfileService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
 
-    @inject('HashProviders')
+    @inject('HashProvider')
     private hashProvider: IHashProvider,
   ) {}
 
@@ -71,4 +70,4 @@ class UpdateUserAvatarService {
   }
 }
 
-export default UpdateUserAvatarService;
+export default UpdateProfileService;
