@@ -1,8 +1,5 @@
-import path from 'path';
-import fs from 'fs';
 import { injectable, inject } from 'tsyringe';
 
-import uploadConfig from '@config/upload';
 import IUsersRepository from '../repositories/IUsersRepository';
 
 import AppError from '@shared/errors/AppError';
