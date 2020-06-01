@@ -39,7 +39,6 @@ class ResetPasswordService {
     }
 
     const tokenCreatedAt = userToken.created_at;
-    console.log(userToken);
 
     const compareDate = addHours(tokenCreatedAt, 2);
 
