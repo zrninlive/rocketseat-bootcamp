@@ -51,7 +51,6 @@ class AppointmentsRepository implements IAppointmentsRepository {
     const parsedMonth = String(month).padStart(2, '0');
     const parsedDay = String(day).padStart(2, '0');
 
-    console.log(`'${parsedDay}-${parsedMonth}-${year}'`);
     const appointments = await this.ormRepository.find({
       where: {
         provider_id,
@@ -61,8 +60,6 @@ class AppointmentsRepository implements IAppointmentsRepository {
         ),
       },
     });
-
-    console.log(appointments);
 
     return appointments;
   }
