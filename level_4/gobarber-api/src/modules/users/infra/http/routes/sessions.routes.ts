@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import { celebrate, Segments, Joi } from 'celebrate';
 
 import SessionController from '../controllers/SessionsController';
